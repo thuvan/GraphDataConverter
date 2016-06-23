@@ -2,6 +2,7 @@ package graphdata;
 
 import java.util.Comparator;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -37,7 +38,17 @@ public class GraphRepository extends AbstractRepository implements IGraphReposit
 	public void clear() {
 		graphById.clear();
 		orderedGraphSet.clear();
-		super.reset();
+		super.reset();		
+	}
+
+	@Override
+	public Iterator<MyGraph> getIterator() {		
+		return orderedGraphSet.iterator();
+	}
+
+	@Override
+	public int getGraphCount() {
+		return orderedGraphSet.size();
 	}
 	
 	
